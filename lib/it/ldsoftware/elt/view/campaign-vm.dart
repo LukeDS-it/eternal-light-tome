@@ -1,7 +1,7 @@
 class CampaignVM {
   String title;
   String description;
-  DateTime startDate;
+  String startDate;
 
   CampaignVM(this.title, this.description, this.startDate);
 }
