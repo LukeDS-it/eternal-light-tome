@@ -3,8 +3,15 @@ import 'package:flutter/material.dart';
 
 import 'list-element.dart';
 
-class CampaignsView extends StatelessWidget {
-  final List<CampaignVM> campaigns = [
+class CampaignsView extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return _CampaignsState();
+  }
+}
+
+class _CampaignsState extends State<CampaignsView> {
+  final List<CampaignVM> _campaigns = [
     CampaignVM(
         "Eldritch Horrors", "Campagna basata su H. P. Lovecraft", "2019-05-15"),
     CampaignVM(
@@ -19,39 +26,33 @@ class CampaignsView extends StatelessWidget {
       ),
       drawer: Drawer(
           child: ListView(
-            padding: EdgeInsets.zero,
-            children: <Widget>[
-              DrawerHeader(
-                child: Text("Drawer header"),
-              ),
-              ListTile(
-                leading: Icon(Icons.archive),
-                title: Text("Archived campaigns"),
-              ),
-              ListTile(
-                leading: Icon(Icons.settings),
-                title: Text("Settings")
-              ),
-              ListTile(
-                leading: Icon(Icons.memory),
-                title: Text("Database")
-              ),
-              ListTile(
-                leading: Icon(Icons.info),
-                title: Text("Credits")
-              )
-            ],
-          )
-      ),
+        padding: EdgeInsets.zero,
+        children: <Widget>[
+          DrawerHeader(
+            child: Text("Drawer header"),
+          ),
+          ListTile(
+            leading: Icon(Icons.archive),
+            title: Text("Archived campaigns"),
+          ),
+          ListTile(leading: Icon(Icons.settings), title: Text("Settings")),
+          ListTile(leading: Icon(Icons.memory), title: Text("Database")),
+          ListTile(leading: Icon(Icons.info), title: Text("Credits"))
+        ],
+      )),
       body: ListView.builder(
-          itemCount: campaigns.length,
+          itemCount: _campaigns.length,
           itemBuilder: (context, position) {
-            var campaign = campaigns[position];
+            var campaign = _campaigns[position];
             return ListElement(
                 campaign.title, campaign.description, campaign.startDate);
           }),
       floatingActionButton: FloatingActionButton(
-        onPressed: null,
+        onPressed: () {
+          setState(() {
+            _campaigns.add(CampaignVM("Campagna1", "Campagna2", "2019-06-26"));
+          });
+        },
         child: Icon(Icons.add),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
