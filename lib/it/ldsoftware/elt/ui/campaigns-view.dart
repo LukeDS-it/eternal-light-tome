@@ -1,7 +1,6 @@
+import 'package:elt/it/ldsoftware/elt/ui/story-view.dart';
 import 'package:elt/it/ldsoftware/elt/ui/view-model.dart';
 import 'package:flutter/material.dart';
-
-import 'list-element.dart';
 
 class CampaignsView extends StatefulWidget {
   @override
@@ -44,8 +43,17 @@ class _CampaignsState extends State<CampaignsView> {
           itemCount: _campaigns.length,
           itemBuilder: (context, position) {
             var campaign = _campaigns[position];
-            return ListElement(
-                campaign.title, campaign.description, campaign.startDate);
+            return ListTile(
+              title: Text(campaign.title),
+              subtitle: Text(campaign.description),
+              trailing: Text(campaign.startDate),
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => StoryView(campaign.title)));
+              },
+            );
           }),
       floatingActionButton: FloatingActionButton(
         onPressed: () {

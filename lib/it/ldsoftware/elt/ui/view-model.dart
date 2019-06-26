@@ -17,8 +17,8 @@ class ChapterVM {
   List<String> quests;
   List<String> monsters;
 
-  ChapterVM(this.place, this.story, this.people, this.places, this.quests,
-      this.folks, this.monsters, this.items);
+  ChapterVM(this.place, this.story, [this.people, this.places, this.quests,
+      this.folks, this.monsters, this.items]);
 }
 
 class CharacterVM {
