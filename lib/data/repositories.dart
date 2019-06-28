@@ -9,7 +9,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non eros a ex males
 
 xIn hac habitasse platea dictumst. Vestibulum semper congue ultricies. Pellentesque elementum facilisis suscipit. Ut efficitur, nibh vitae euismod fringilla, ipsum dolor sollicitudin leo, in sodales purus lectus egestas arcu. Vestibulum eget turpis porttitor, sodales diam non, tincidunt tortor. Vestibulum blandit consequat mattis. Ut maximus vulputate mi. Pellentesque mattis, justo a tristique fermentum, dui dolor mollis dui, non ultricies tortor risus et tortor. Nulla facilisi.
     """,
-        ["Cane"],
+        ["Cane", "Gigi"],
         null,
         null,
         null,
@@ -27,6 +27,10 @@ xIn hac habitasse platea dictumst. Vestibulum semper congue ultricies. Pellentes
 
   static List<ChapterVM> getChapters(int id)  {
     return _chapters;
+  }
+
+  static ChapterVM getChapter(int id) {
+    return _chapters[id];
   }
 }
 

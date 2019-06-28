@@ -2,6 +2,7 @@ import 'package:elt/data/repositories.dart';
 import 'package:elt/ui/view-model.dart';
 import 'package:flutter/material.dart';
 
+import 'chapter-view.dart';
 import 'common-components.dart';
 
 class StoryView extends StatefulWidget {
@@ -52,7 +53,10 @@ class _StoryState extends State<StoryView> {
                 : chapter.story;
             return GestureDetector(
                 onTap: () {
-                  print("Open full chapter view");
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ChapterView(chapter.id)));
                 },
                 child: Card(
                   elevation: 5,
@@ -64,6 +68,7 @@ class _StoryState extends State<StoryView> {
                         isThreeLine: true,
                       ),
                       Wrap(
+                        spacing: 8,
                         children: _getChips(chapter),
                       ),
                     ],
