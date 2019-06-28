@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'it/ldsoftware/elt/ui/campaigns-view.dart';
+import 'ui/campaigns-view.dart';
 
 void main() => runApp(MyApp());
 

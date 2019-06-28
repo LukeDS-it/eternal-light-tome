@@ -1,5 +1,5 @@
-import 'package:elt/it/ldsoftware/elt/ui/story-view.dart';
-import 'package:elt/it/ldsoftware/elt/ui/view-model.dart';
+import 'package:elt/ui/story-view.dart';
+import 'package:elt/ui/view-model.dart';
 import 'package:flutter/material.dart';
 
 class CampaignsView extends StatefulWidget {

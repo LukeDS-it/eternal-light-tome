@@ -1,4 +1,4 @@
-import 'package:elt/it/ldsoftware/elt/ui/view-model.dart';
+import 'package:elt/ui/view-model.dart';
 import 'package:flutter/material.dart';
 
 import 'common-components.dart';
