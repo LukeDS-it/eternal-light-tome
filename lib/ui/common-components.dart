@@ -1,8 +1,9 @@
+import 'package:elt/ui/story-view.dart';
 import 'package:elt/ui/view-model.dart';
 import 'package:flutter/material.dart';
 
 class CampaignDrawer extends Drawer {
-  CampaignDrawer(CampaignVM campaign)
+  CampaignDrawer(CampaignVM campaign, BuildContext context)
       : super(
             child: ListView(
           padding: EdgeInsets.zero,
@@ -14,7 +15,7 @@ class CampaignDrawer extends Drawer {
               title: Text("Story"),
               leading: CommonIcons.STORY_ICON,
               onTap: () {
-                print("hello");
+                Navigator.pushReplacementNamed(context, StoryView.ROUTE, arguments: campaign.id);
               },
             ),
             ListTile(

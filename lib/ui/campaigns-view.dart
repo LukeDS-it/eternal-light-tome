@@ -44,10 +44,8 @@ class _CampaignsState extends State<CampaignsView> {
               subtitle: Text(campaign.description),
               trailing: Text(campaign.startDate),
               onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => StoryView(campaign.id)));
+                Navigator.pushNamed(context, StoryView.ROUTE,
+                    arguments: campaign.id);
               },
             );
           }),

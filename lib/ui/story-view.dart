@@ -7,8 +7,10 @@ import 'common-components.dart';
 
 class StoryView extends StatefulWidget {
   final int _campaignId;
+  static const ROUTE = '/story';
 
-  StoryView(this._campaignId);
+  StoryView(BuildContext context)
+      : _campaignId = ModalRoute.of(context).settings.arguments;
 
   @override
   State<StatefulWidget> createState() {
@@ -42,7 +44,7 @@ class _StoryState extends State<StoryView> {
           )
         ],
       ),
-      drawer: CampaignDrawer(_campaign),
+      drawer: CampaignDrawer(_campaign, context),
       body: ListView.builder(
           padding: EdgeInsets.fromLTRB(5, 10, 5, 10),
           itemCount: _chapters.length,
@@ -53,10 +55,8 @@ class _StoryState extends State<StoryView> {
                 : chapter.story;
             return GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => ChapterView(chapter.id)));
+                  Navigator.pushNamed(context, ChapterView.ROUTE,
+                      arguments: chapter.id);
                 },
                 child: Card(
                   elevation: 5,

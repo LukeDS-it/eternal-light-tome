@@ -5,9 +5,12 @@ import 'package:flutter/material.dart';
 import 'common-components.dart';
 
 class ChapterView extends StatefulWidget {
+  static const ROUTE = '/chapter';
+
   final int _chapterId;
 
-  ChapterView(this._chapterId);
+  ChapterView(BuildContext context)
+      : _chapterId = ModalRoute.of(context).settings.arguments;
 
   @override
   State<StatefulWidget> createState() {

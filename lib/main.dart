@@ -1,3 +1,5 @@
+import 'package:elt/ui/chapter-view.dart';
+import 'package:elt/ui/story-view.dart';
 import 'package:flutter/material.dart';
 
 import 'ui/campaigns-view.dart';
@@ -26,7 +28,12 @@ class MyApp extends StatelessWidget {
           body1: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
         ),
       ),
-      home: CampaignsView(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => CampaignsView(),
+        StoryView.ROUTE: (context) => StoryView(context),
+        ChapterView.ROUTE: (context) => ChapterView(context)
+      },
     );
   }
 }
