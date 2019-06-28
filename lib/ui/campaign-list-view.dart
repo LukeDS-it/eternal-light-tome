@@ -1,16 +1,16 @@
 import 'package:elt/data/repositories.dart';
-import 'package:elt/ui/story-view.dart';
+import 'package:elt/ui/chapter-list-view.dart';
 import 'package:elt/ui/view-model.dart';
 import 'package:flutter/material.dart';
 
-class CampaignsView extends StatefulWidget {
+class CampaignListView extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _CampaignsState();
+    return _CampaignListState();
   }
 }
 
-class _CampaignsState extends State<CampaignsView> {
+class _CampaignListState extends State<CampaignListView> {
   List<CampaignVM> _campaigns = CampaignRepo.getCampaigns();
 
   @override
@@ -44,7 +44,7 @@ class _CampaignsState extends State<CampaignsView> {
               subtitle: Text(campaign.description),
               trailing: Text(campaign.startDate),
               onTap: () {
-                Navigator.pushNamed(context, StoryView.ROUTE,
+                Navigator.pushNamed(context, ChapterListView.ROUTE,
                     arguments: campaign.id);
               },
             );

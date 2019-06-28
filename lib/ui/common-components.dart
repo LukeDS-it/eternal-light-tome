@@ -1,6 +1,8 @@
-import 'package:elt/ui/story-view.dart';
+import 'package:elt/ui/chapter-list-view.dart';
 import 'package:elt/ui/view-model.dart';
 import 'package:flutter/material.dart';
+
+import 'character-list-view.dart';
 
 class CampaignDrawer extends Drawer {
   CampaignDrawer(CampaignVM campaign, BuildContext context)
@@ -15,14 +17,14 @@ class CampaignDrawer extends Drawer {
               title: Text("Story"),
               leading: CommonIcons.STORY_ICON,
               onTap: () {
-                Navigator.pushReplacementNamed(context, StoryView.ROUTE, arguments: campaign.id);
+                Navigator.pushReplacementNamed(context, ChapterListView.ROUTE, arguments: campaign.id);
               },
             ),
             ListTile(
               title: Text("Characters"),
               leading: CommonIcons.CHARACTER_ICON,
               onTap: () {
-                print("hello");
+                Navigator.pushReplacementNamed(context, CharacterListView.ROUTE, arguments: campaign.id);
               },
             ),
             ListTile(

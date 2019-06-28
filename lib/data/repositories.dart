@@ -2,7 +2,8 @@ import 'package:elt/ui/view-model.dart';
 
 class ChapterRepo {
   static List<ChapterVM> _chapters = [
-    ChapterVM(0,
+    ChapterVM(
+        0,
         "Home",
         """
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non eros a ex malesuada laoreet dignissim sed tellus. Nunc blandit feugiat mollis. Quisque dapibus leo sit amet ullamcorper ultricies. Pellentesque nisl sapien, tempus quis libero in, blandit aliquet erat. Suspendisse pellentesque mattis fermentum. Proin fermentum euismod ligula, nec congue libero sagittis sed. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris ac vehicula risus. Aliquam lobortis vulputate felis vitae dignissim. Nam ullamcorper turpis quis ipsum pellentesque convallis. Nullam cursus volutpat urna, a rhoncus est cursus eget. Quisque hendrerit orci eu accumsan iaculis. Fusce quam enim, malesuada eu libero sed, tempor imperdiet leo. Pellentesque et semper est. Nunc rhoncus magna ex, non malesuada metus lacinia ut.
@@ -14,7 +15,8 @@ xIn hac habitasse platea dictumst. Vestibulum semper congue ultricies. Pellentes
         null,
         null,
         ["Cane"]),
-    ChapterVM(1,
+    ChapterVM(
+        1,
         "Taverna polena spezzata",
         "Andiamo nella taverna, troviamo un tizio che ci da una missione",
         ["Giovanni"],
@@ -25,7 +27,7 @@ xIn hac habitasse platea dictumst. Vestibulum semper congue ultricies. Pellentes
         ["Scatola"])
   ];
 
-  static List<ChapterVM> getChapters(int id)  {
+  static List<ChapterVM> getChapters(int id) {
     return _chapters;
   }
 
@@ -52,8 +54,20 @@ class CampaignRepo {
   }
 
   static int addCampaign(title, description, startDate) {
-    _campaigns.add(CampaignVM(_progressive, "$title $_progressive", "$description $_progressive", startDate));
+    _campaigns.add(CampaignVM(_progressive, "$title $_progressive",
+        "$description $_progressive", startDate));
     _progressive++;
     return _progressive;
+  }
+}
+
+class CharacterRepo {
+  static final List<CharacterVM> _characters = [
+    CharacterVM(0, "Edvarg",
+        "Uomo di mezza età che gira sempre con un gonnello", "Umano", "???", "")
+  ];
+
+  static List<CharacterVM> getCharacters(int id) {
+    return _characters;
   }
 }

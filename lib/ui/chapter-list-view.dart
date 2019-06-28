@@ -5,31 +5,28 @@ import 'package:flutter/material.dart';
 import 'chapter-view.dart';
 import 'common-components.dart';
 
-class StoryView extends StatefulWidget {
+class ChapterListView extends StatefulWidget {
   final int _campaignId;
   static const ROUTE = '/story';
 
-  StoryView(BuildContext context)
+  ChapterListView(BuildContext context)
       : _campaignId = ModalRoute.of(context).settings.arguments;
 
   @override
   State<StatefulWidget> createState() {
-    return _StoryState(_campaignId);
+    return _ChapterListState(_campaignId);
   }
 }
 
-class _StoryState extends State<StoryView> {
-  final int _campaignId;
+class _ChapterListState extends State<ChapterListView> {
   final CampaignVM _campaign;
   final List<ChapterVM> _chapters;
 
-  _StoryState._(this._campaignId, this._campaign, this._chapters);
+  _ChapterListState._(this._campaign, this._chapters);
 
-  factory _StoryState(int id) {
-    CampaignVM campaign = CampaignRepo.getCampaign(id);
-    List<ChapterVM> chapters = ChapterRepo.getChapters(id);
-
-    return _StoryState._(id, campaign, chapters);
+  factory _ChapterListState(int id) {
+    return _ChapterListState._(
+        CampaignRepo.getCampaign(id), ChapterRepo.getChapters(id));
   }
 
   @override
