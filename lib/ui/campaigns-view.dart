@@ -11,8 +11,6 @@ class CampaignsView extends StatefulWidget {
 }
 
 class _CampaignsState extends State<CampaignsView> {
-  int progressive = 3;
-
   List<CampaignVM> _campaigns = CampaignRepo.getCampaigns();
 
   @override
@@ -56,8 +54,7 @@ class _CampaignsState extends State<CampaignsView> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           setState(() {
-            progressive = CampaignRepo.addCampaign(
-                "Campagna $progressive", "Campagna $progressive", "2019-06-26");
+            CampaignRepo.addCampaign("Campagna", "Campagna", "2019-06-26");
             _campaigns = CampaignRepo.getCampaigns();
           });
         },

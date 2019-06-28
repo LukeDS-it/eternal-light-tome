@@ -31,7 +31,7 @@ xIn hac habitasse platea dictumst. Vestibulum semper congue ultricies. Pellentes
 }
 
 class CampaignRepo {
-  static int _progressive = 1;
+  static int _progressive = 2;
   static final List<CampaignVM> _campaigns = [
     CampaignVM(0, "Eldritch Horrors", "Campagna basata su H. P. Lovecraft",
         "2019-05-15"),
@@ -48,7 +48,7 @@ class CampaignRepo {
   }
 
   static int addCampaign(title, description, startDate) {
-    _campaigns.add(CampaignVM(_progressive, title, description, startDate));
+    _campaigns.add(CampaignVM(_progressive, "$title $_progressive", "$description $_progressive", startDate));
     _progressive++;
     return _progressive;
   }
