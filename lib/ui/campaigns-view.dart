@@ -1,3 +1,4 @@
+import 'package:elt/data/repositories.dart';
 import 'package:elt/ui/story-view.dart';
 import 'package:elt/ui/view-model.dart';
 import 'package:flutter/material.dart';
@@ -10,12 +11,9 @@ class CampaignsView extends StatefulWidget {
 }
 
 class _CampaignsState extends State<CampaignsView> {
-  final List<CampaignVM> _campaigns = [
-    CampaignVM(
-        "Eldritch Horrors", "Campagna basata su H. P. Lovecraft", "2019-05-15"),
-    CampaignVM(
-        "GuruGuru", "Un bel giorno il re del male Ghiri...", "2019-07-22"),
-  ];
+  int progressive = 3;
+
+  List<CampaignVM> _campaigns = CampaignRepo.getCampaigns();
 
   @override
   Widget build(BuildContext context) {
@@ -51,14 +49,16 @@ class _CampaignsState extends State<CampaignsView> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => StoryView(campaign.title)));
+                        builder: (context) => StoryView(campaign.id)));
               },
             );
           }),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           setState(() {
-            _campaigns.add(CampaignVM("Campagna1", "Campagna2", "2019-06-26"));
+            progressive = CampaignRepo.addCampaign(
+                "Campagna $progressive", "Campagna $progressive", "2019-06-26");
+            _campaigns = CampaignRepo.getCampaigns();
           });
         },
         child: Icon(Icons.add),

@@ -1,13 +1,14 @@
+import 'package:elt/ui/view-model.dart';
 import 'package:flutter/material.dart';
 
 class CampaignDrawer extends Drawer {
-  CampaignDrawer(String campaignName)
+  CampaignDrawer(CampaignVM campaign)
       : super(
             child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
             DrawerHeader(
-              child: Text(campaignName),
+              child: Text(campaign.title),
             ),
             ListTile(
               title: Text("Story"),

@@ -1,12 +1,16 @@
 class CampaignVM {
+  int id;
+
   String title;
   String description;
   String startDate;
 
-  CampaignVM(this.title, this.description, this.startDate);
+  CampaignVM(this.id, this.title, this.description, this.startDate);
 }
 
 class ChapterVM {
+  int id;
+
   String place;
   String story;
 
@@ -17,11 +21,18 @@ class ChapterVM {
   List<String> quests;
   List<String> monsters;
 
-  ChapterVM(this.place, this.story, [this.people, this.places, this.quests,
-      this.folks, this.monsters, this.items]);
+  ChapterVM(this.id, this.place, this.story,
+      [this.people,
+      this.places,
+      this.quests,
+      this.folks,
+      this.monsters,
+      this.items]);
 }
 
 class CharacterVM {
+  int id;
+
   String name;
   String race;
   String notes;
@@ -32,11 +43,14 @@ class CharacterVM {
   List<String> appearances;
   List<String> affiliations;
 
-  CharacterVM(this.name, this.description, this.race, this.alignment,
-      this.notes, this.appearances, this.quests, this.affiliations);
+  CharacterVM(this.id, this.name, this.description, this.race, this.alignment,
+      this.notes,
+      [this.appearances, this.quests, this.affiliations]);
 }
 
 class FolkVM {
+  int id;
+
   String name;
   String race;
   String place;
@@ -44,10 +58,11 @@ class FolkVM {
   List<String> people;
   List<String> places;
 
-  FolkVM(this.name, this.race, this.place, this.people, this.places);
+  FolkVM(this.id, this.name, this.race, this.place, [this.people, this.places]);
 }
 
 class ItemVM {
+  int id;
   int value;
 
   String name;
@@ -56,8 +71,8 @@ class ItemVM {
 
   List<String> appearances;
 
-  ItemVM(
-      this.value, this.name, this.effect, this.description, this.appearances);
+  ItemVM(this.value, this.name, this.effect, this.description,
+      [this.appearances]);
 }
 
 class Link {
@@ -68,6 +83,7 @@ class Link {
 }
 
 class MonsterVM {
+  int id;
   int health;
 
   String name;
@@ -75,10 +91,12 @@ class MonsterVM {
 
   List<String> places;
 
-  MonsterVM(this.health, this.name, this.type, this.places);
+  MonsterVM(this.health, this.name, this.type, [this.places]);
 }
 
 class PlaceVM {
+  int id;
+
   String name;
   String description;
 
@@ -88,11 +106,13 @@ class PlaceVM {
   List<Link> monsters;
   List<Link> characters;
 
-  PlaceVM(this.name, this.description, this.subPlaces, this.quests,
-      this.monsters, this.characters);
+  PlaceVM(this.name, this.description,
+      [this.subPlaces, this.quests, this.monsters, this.characters]);
 }
 
 class QuestVM {
+  int id;
+
   String title;
   String notes;
   String description;
@@ -105,6 +125,7 @@ class QuestVM {
 
   List<String> people;
 
-  QuestVM(this.description, this.notes, this.title, this.startChar, this.endChar,
-      this.startPlace, this.endPlace, this.people);
+  QuestVM(this.description, this.notes, this.title, this.startChar,
+      this.endChar, this.startPlace, this.endPlace,
+      [this.people]);
 }

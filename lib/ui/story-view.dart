@@ -1,52 +1,39 @@
+import 'package:elt/data/repositories.dart';
 import 'package:elt/ui/view-model.dart';
 import 'package:flutter/material.dart';
 
 import 'common-components.dart';
 
 class StoryView extends StatefulWidget {
-  final String _campaignName;
+  final int _campaignId;
 
-  StoryView(this._campaignName);
+  StoryView(this._campaignId);
 
   @override
   State<StatefulWidget> createState() {
-    return _StoryState(_campaignName);
+    return _StoryState(_campaignId);
   }
 }
 
 class _StoryState extends State<StoryView> {
-  final String _campaignName;
-  List<ChapterVM> chapters = [
-    ChapterVM(
-        "Home",
-        """
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non eros a ex malesuada laoreet dignissim sed tellus. Nunc blandit feugiat mollis. Quisque dapibus leo sit amet ullamcorper ultricies. Pellentesque nisl sapien, tempus quis libero in, blandit aliquet erat. Suspendisse pellentesque mattis fermentum. Proin fermentum euismod ligula, nec congue libero sagittis sed. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris ac vehicula risus. Aliquam lobortis vulputate felis vitae dignissim. Nam ullamcorper turpis quis ipsum pellentesque convallis. Nullam cursus volutpat urna, a rhoncus est cursus eget. Quisque hendrerit orci eu accumsan iaculis. Fusce quam enim, malesuada eu libero sed, tempor imperdiet leo. Pellentesque et semper est. Nunc rhoncus magna ex, non malesuada metus lacinia ut.
+  final int _campaignId;
+  final CampaignVM _campaign;
+  final List<ChapterVM> _chapters;
 
-xIn hac habitasse platea dictumst. Vestibulum semper congue ultricies. Pellentesque elementum facilisis suscipit. Ut efficitur, nibh vitae euismod fringilla, ipsum dolor sollicitudin leo, in sodales purus lectus egestas arcu. Vestibulum eget turpis porttitor, sodales diam non, tincidunt tortor. Vestibulum blandit consequat mattis. Ut maximus vulputate mi. Pellentesque mattis, justo a tristique fermentum, dui dolor mollis dui, non ultricies tortor risus et tortor. Nulla facilisi.
-    """,
-        ["Cane"],
-        null,
-        null,
-        null,
-        ["Cane"]),
-    ChapterVM(
-        "Taverna polena spezzata",
-        "Andiamo nella taverna, troviamo un tizio che ci da una missione",
-        ["Giovanni"],
-        ["Palude di Ipswitch"],
-        ["Porta la scatola"],
-        ["Elfi"],
-        ["Velociragno"],
-        ["Scatola"])
-  ];
+  _StoryState._(this._campaignId, this._campaign, this._chapters);
 
-  _StoryState(this._campaignName);
+  factory _StoryState(int id) {
+    CampaignVM campaign = CampaignRepo.getCampaign(id);
+    List<ChapterVM> chapters = ChapterRepo.getChapters(id);
+
+    return _StoryState._(id, campaign, chapters);
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(_campaignName),
+        title: Text(_campaign.title),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.search),
@@ -54,12 +41,12 @@ xIn hac habitasse platea dictumst. Vestibulum semper congue ultricies. Pellentes
           )
         ],
       ),
-      drawer: CampaignDrawer(_campaignName),
+      drawer: CampaignDrawer(_campaign),
       body: ListView.builder(
           padding: EdgeInsets.fromLTRB(5, 10, 5, 10),
-          itemCount: chapters.length,
+          itemCount: _chapters.length,
           itemBuilder: (context, position) {
-            var chapter = chapters[position];
+            var chapter = _chapters[position];
             var story = chapter.story.length > 300
                 ? chapter.story.substring(0, 300) + "..."
                 : chapter.story;
