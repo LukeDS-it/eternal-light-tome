@@ -1,4 +1,5 @@
 import 'package:elt/ui/chapter-list-view.dart';
+import 'package:elt/ui/place-list-view.dart';
 import 'package:elt/ui/view-model.dart';
 import 'package:flutter/material.dart';
 
@@ -31,7 +32,7 @@ class CampaignDrawer extends Drawer {
               title: Text("Places"),
               leading: CommonIcons.PLACE_ICON,
               onTap: () {
-                print("hello");
+                Navigator.pushReplacementNamed(context, PlaceListView.ROUTE, arguments: campaign.id);
               },
             ),
             ListTile(

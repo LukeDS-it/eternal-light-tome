@@ -29,7 +29,13 @@ class _ChapterState extends State<ChapterView> {
   factory _ChapterState(int id) {
     var chapter = ChapterRepo.getChapter(id);
     var pages = [
-      Text(chapter.story),
+      Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Text(
+          chapter.story,
+          textAlign: TextAlign.justify,
+        ),
+      ),
       _listView(chapter.people),
       _listView(chapter.places),
       _listView(chapter.quests),

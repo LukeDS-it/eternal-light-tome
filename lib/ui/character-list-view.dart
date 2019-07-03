@@ -33,7 +33,7 @@ class _CharacterListState extends State<CharacterListView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Characters"),
+        title: Text(_campaign.title + " (characters)"),
       ),
       drawer: CampaignDrawer(_campaign, context),
       body: ListView.builder(

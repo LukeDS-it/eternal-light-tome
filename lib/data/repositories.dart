@@ -71,3 +71,11 @@ class CharacterRepo {
     return _characters;
   }
 }
+
+class PlaceRepo {
+  static final List<PlaceVM> _places = [];
+  
+  static List<PlaceVM> getPlaces(int id) {
+    return _places;
+  }
+}
