@@ -23,11 +23,11 @@ class ChapterVM {
 
   ChapterVM(this.id, this.place, this.story,
       [this.people,
-      this.places,
-      this.quests,
-      this.folks,
-      this.monsters,
-      this.items]);
+        this.places,
+        this.quests,
+        this.folks,
+        this.monsters,
+        this.items]);
 }
 
 class CharacterVM {
@@ -71,7 +71,7 @@ class ItemVM {
 
   List<String> appearances;
 
-  ItemVM(this.value, this.name, this.effect, this.description,
+  ItemVM(this.id, this.value, this.name, this.effect, this.description,
       [this.appearances]);
 }
 
@@ -91,7 +91,7 @@ class MonsterVM {
 
   List<String> places;
 
-  MonsterVM(this.health, this.name, this.type, [this.places]);
+  MonsterVM(this.id, this.health, this.name, this.type, [this.places]);
 }
 
 class PlaceVM {
@@ -106,7 +106,7 @@ class PlaceVM {
   List<Link> monsters;
   List<Link> characters;
 
-  PlaceVM(this.name, this.description,
+  PlaceVM(this.id, this.name, this.description,
       [this.subPlaces, this.quests, this.monsters, this.characters]);
 }
 
@@ -125,7 +125,16 @@ class QuestVM {
 
   List<String> people;
 
-  QuestVM(this.description, this.notes, this.title, this.startChar,
+  QuestVM(this.id, this.description, this.notes, this.title, this.startChar,
       this.endChar, this.startPlace, this.endPlace,
       [this.people]);
+}
+
+class NoteVM {
+  int id;
+
+  String title;
+  String text;
+
+  NoteVM(this.id, this.title, this.text);
 }

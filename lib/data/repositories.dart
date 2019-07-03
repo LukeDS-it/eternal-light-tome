@@ -74,7 +74,7 @@ class CharacterRepo {
 
 class PlaceRepo {
   static final List<PlaceVM> _places = [];
-  
+
   static List<PlaceVM> getPlaces(int id) {
     return _places;
   }
@@ -101,5 +101,21 @@ class MonsterRepo {
 
   static List<MonsterVM> getMonsters(int id) {
     return _monsters;
+  }
+}
+
+class FolkRepo {
+  static final List<FolkVM> _folks = [];
+
+  static List<FolkVM> getFolks(int id) {
+    return _folks;
+  }
+}
+
+class NoteRepo {
+  static final List<NoteVM> _places = [];
+
+  static List<NoteVM> getNotes(int id) {
+    return _places;
   }
 }

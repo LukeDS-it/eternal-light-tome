@@ -4,36 +4,36 @@ import 'package:flutter/material.dart';
 
 import 'common-components.dart';
 
-class FolkListView extends StatefulWidget {
+class NoteListView extends StatefulWidget {
   final int _campaignId;
-  static const ROUTE = '/folk';
+  static const ROUTE = '/note';
 
-  FolkListView(BuildContext context)
+  NoteListView(BuildContext context)
       : _campaignId = ModalRoute.of(context).settings.arguments;
 
   @override
   State<StatefulWidget> createState() {
-    return _FolkListState(_campaignId);
+    return _NoteListState(_campaignId);
   }
 }
 
-class _FolkListState extends State<FolkListView> {
+class _NoteListState extends State<NoteListView> {
 
   final CampaignVM _campaign;
-  final List<FolkVM> _folks;
+  final List<NoteVM> _notes;
 
-  _FolkListState._(this._campaign, this._folks);
+  _NoteListState._(this._campaign, this._notes);
 
-  factory _FolkListState(int id) {
-    return _FolkListState._(
-        CampaignRepo.getCampaign(id), FolkRepo.getFolks(id));
+  factory _NoteListState(int id) {
+    return _NoteListState._(
+        CampaignRepo.getCampaign(id), NoteRepo.getNotes(id));
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(_campaign.title + " (folks)"),
+        title: Text(_campaign.title + " (notes)"),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.search),
@@ -43,12 +43,15 @@ class _FolkListState extends State<FolkListView> {
       ),
       drawer: CampaignDrawer(_campaign, context),
       body: ListView.builder(
-          itemCount: _folks.length,
+          itemCount: _notes.length,
           itemBuilder: (context, position) {
+            var desc = _notes[position].text.length > 20
+                ? _notes[position].text.substring(0, 20) + "..."
+                : _notes[position].text;
             return ListTile(
               leading: Icon(Icons.place),
-              title: Text(_folks[position].name),
-              subtitle: Text(_folks[position].race),
+              title: Text(_notes[position].title),
+              subtitle: Text(desc),
             );
           }),
       floatingActionButton: FloatingActionButton(child: Icon(Icons.add), onPressed: null),

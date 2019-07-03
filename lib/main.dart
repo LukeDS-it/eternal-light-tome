@@ -1,8 +1,10 @@
 import 'package:elt/ui/chapter-view.dart';
 import 'package:elt/ui/chapter-list-view.dart';
 import 'package:elt/ui/character-list-view.dart';
+import 'package:elt/ui/folk-list-view.dart';
 import 'package:elt/ui/item-list-view.dart';
 import 'package:elt/ui/monster-list-view.dart';
+import 'package:elt/ui/note-list-view.dart';
 import 'package:elt/ui/place-list-view.dart';
 import 'package:elt/ui/quest-list-view.dart';
 import 'package:flutter/material.dart';
@@ -42,7 +44,9 @@ class MyApp extends StatelessWidget {
         PlaceListView.ROUTE: (context) => PlaceListView(context),
         ItemListView.ROUTE: (context) => ItemListView(context),
         QuestListView.ROUTE: (context) => QuestListView(context),
-        MonsterListView.ROUTE: (context) => MonsterListView(context)
+        MonsterListView.ROUTE: (context) => MonsterListView(context),
+        FolkListView.ROUTE: (context) => FolkListView(context),
+        NoteListView.ROUTE: (context) => NoteListView(context)
       },
     );
   }
