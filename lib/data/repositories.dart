@@ -95,3 +95,11 @@ class QuestRepo {
     return _quests;
   }
 }
+
+class MonsterRepo {
+  static final List<MonsterVM> _monsters = [];
+
+  static List<MonsterVM> getMonsters(int id) {
+    return _monsters;
+  }
+}

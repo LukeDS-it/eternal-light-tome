@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 
 import 'character-list-view.dart';
 import 'item-list-view.dart';
+import 'monster-list-view.dart';
 
 class CampaignDrawer extends Drawer {
   CampaignDrawer(CampaignVM campaign, BuildContext context)
@@ -55,7 +56,7 @@ class CampaignDrawer extends Drawer {
               title: Text("Monsters"),
               leading: CommonIcons.MONSTER_ICON,
               onTap: () {
-                print("hello");
+                Navigator.pushReplacementNamed(context, MonsterListView.ROUTE, arguments: campaign.id);
               },
             ),
             ListTile(
