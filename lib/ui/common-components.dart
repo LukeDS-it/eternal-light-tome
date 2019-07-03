@@ -1,5 +1,6 @@
 import 'package:elt/ui/chapter-list-view.dart';
 import 'package:elt/ui/place-list-view.dart';
+import 'package:elt/ui/quest-list-view.dart';
 import 'package:elt/ui/view-model.dart';
 import 'package:flutter/material.dart';
 
@@ -47,7 +48,7 @@ class CampaignDrawer extends Drawer {
               title: Text("Quests"),
               leading: CommonIcons.QUEST_ICON,
               onTap: () {
-                print("hello");
+                Navigator.pushReplacementNamed(context, QuestListView.ROUTE, arguments: campaign.id);
               },
             ),
             ListTile(

@@ -3,6 +3,7 @@ import 'package:elt/ui/chapter-list-view.dart';
 import 'package:elt/ui/character-list-view.dart';
 import 'package:elt/ui/item-list-view.dart';
 import 'package:elt/ui/place-list-view.dart';
+import 'package:elt/ui/quest-list-view.dart';
 import 'package:flutter/material.dart';
 
 import 'ui/campaign-list-view.dart';
@@ -38,7 +39,8 @@ class MyApp extends StatelessWidget {
         ChapterView.ROUTE: (context) => ChapterView(context),
         CharacterListView.ROUTE: (context) => CharacterListView(context),
         PlaceListView.ROUTE: (context) => PlaceListView(context),
-        ItemListView.ROUTE: (context) => ItemListView(context)
+        ItemListView.ROUTE: (context) => ItemListView(context),
+        QuestListView.ROUTE: (context) => QuestListView(context)
       },
     );
   }

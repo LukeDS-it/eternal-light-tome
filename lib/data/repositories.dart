@@ -87,3 +87,11 @@ class ItemRepo {
     return _items;
   }
 }
+
+class QuestRepo {
+  static final List<QuestVM> _quests = [];
+
+  static List<QuestVM> getQuests(int id) {
+    return _quests;
+  }
+}
