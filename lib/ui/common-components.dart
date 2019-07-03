@@ -4,6 +4,7 @@ import 'package:elt/ui/view-model.dart';
 import 'package:flutter/material.dart';
 
 import 'character-list-view.dart';
+import 'item-list-view.dart';
 
 class CampaignDrawer extends Drawer {
   CampaignDrawer(CampaignVM campaign, BuildContext context)
@@ -39,7 +40,7 @@ class CampaignDrawer extends Drawer {
               title: Text("Items"),
               leading: CommonIcons.ITEM_ICON,
               onTap: () {
-                print("hello");
+                Navigator.pushReplacementNamed(context, ItemListView.ROUTE, arguments: campaign.id);
               },
             ),
             ListTile(

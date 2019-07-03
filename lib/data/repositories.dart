@@ -79,3 +79,11 @@ class PlaceRepo {
     return _places;
   }
 }
+
+class ItemRepo {
+  static final List<ItemVM> _items = [];
+
+  static List<ItemVM> getItems(int id) {
+    return _items;
+  }
+}
